@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
