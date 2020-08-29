@@ -53,10 +53,17 @@ Time::Time(){
 int main(){
     Time t,t2;
     t.setTime(13,51,6);
+
+    cout<<"Time 1:";
     t.showTime();
+    
     t2.setTime(3,51,59);
+
+    cout<<"Time 2:";
     t2.showTime();
     t.addTime(t2);
+
+    cout<<"Time 1 + Time 2:";
     t.showTime();
     return 0;
 }

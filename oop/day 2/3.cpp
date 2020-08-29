@@ -15,6 +15,7 @@ class Complex{
         Complex mul_complex(int);
 
         Complex();
+	Complex(int,int);
         Complex(const Complex&);
 };
 
@@ -65,7 +66,10 @@ Complex::Complex(){
     real=0;
     imag=0;
 }
-
+Complex::Complex(int r,int i){
+	real=r;
+	imag=i;
+}
 Complex::Complex(const Complex& c){
     real = c.real;
     imag = c.imag;

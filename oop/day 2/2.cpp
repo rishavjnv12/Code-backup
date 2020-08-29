@@ -72,18 +72,27 @@ int main(){
     a1.init(100,1000);
     a2.init(101,1500);
 
-    cout<<"\n\n";
+    cout<<"Account #1:"<<endl;
     a1.display();
+
+    cout<<"Account #2:"<<endl;
     a2.display();
 
-    cout<<"\n\n";
+    cout<<"\n";
     a1.moneyTransfer(a2,600);
+    cout<<"Account #1:"<<endl;
     a1.display();
+    
+    cout<<"Account #2:"<<endl;
     a2.display();
 
-    cout<<"\n\n";
+
+    cout<<"\n";
     a1.moneyTransfer(a2,1000);
+    cout<<"Account #1:"<<endl;
     a1.display();
+    
+    cout<<"Account #2:"<<endl;
     a2.display();
 
     return 0;
