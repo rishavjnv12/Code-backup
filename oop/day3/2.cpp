@@ -4,50 +4,57 @@ using namespace std;
 
 class Student{
     private:
-        int college_id;
-        string fname;
-        string mname;
-        string lname;
+        int collegeID;
+        string first;
+        string middle;
+        string last;
+        static int count;
+
     public:
-        void detail();
-        Student(string name,int id);
-
-
-};
-
-Student::Student(string name,int id){
-    string temp="";
-    college_id=id;
-    fname=mname=lname="";
-    for(int i=0;i<name.length();i++){
-        if(name[i]==' '){
-            if(fname==""){
-                fname=temp;
-                temp="";
-            }else if(mname==""){
-                mname=temp;
-                temp="";
-            }else{
-                lname=temp;
-                break;
-            }
-        }else {
-            temp+=name[i];
+        Student(int cid, string fname){
+            cout << "Constructing..." << endl;
+            collegeID = cid;
+            first = fname;
         }
+        Student(int cid, string fname, string mname){
+            cout << "Constructing..." << endl;
+            collegeID = cid;
+            first = fname;
+            middle = mname;
+        }
+        Student(int cid, string fname, string mname, string lname){
+            cout << "Constructing..." << endl;
+            collegeID = cid;
+            first = fname;
+            middle = mname;
+            last = lname;
+        }
+    void display(){
+        cout << collegeID << " " << first << " " << middle << " " << last << endl;
     }
-    if(lname=="")
-        lname=temp;
-}
+    ~Student(){
+        cout << "Destructing..." << endl;
+    }
+};
+int main()
+{
+    Student *stdptr0 = new Student(1, "rishav");
+    Student *stdptr1 = new Student(2, "atul kumar");
+    Student *stdptr2 = new Student(3, "rishav kumar");
+    Student *stdptr3 = new Student(4, "sunny kumar mishra");
+    Student *stdptr4 = new Student(5, "amit kumar");
 
-void Student::detail(){
-    cout<<"College id:"<<college_id<<endl;
-    cout<<"First name:"<<fname<<endl;
-    cout<<"Middle name:"<<mname<<endl;
-    cout<<"Last name:"<<lname<<endl;
-}
+    stdptr0->display();
+    stdptr1->display();
+    stdptr2->display();
+    stdptr3->display();
+    stdptr4->display();
 
-int main(){
-    Student s("Ankit Raj Rajpoot",100);
-    s.detail();
+    delete stdptr0;
+    delete stdptr1;
+    delete stdptr2;
+    delete stdptr3;
+    delete stdptr4;
+
     return 0;
 }
