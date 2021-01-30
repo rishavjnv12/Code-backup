@@ -1,0 +1,7 @@
+Facts
+    1. lower case alphabet
+        valuable(gold).
+        female(jane).
+        father(john,mary).
+        gives(john,book,mary).
+        play(john,mary,football).

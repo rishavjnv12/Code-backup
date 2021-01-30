@@ -1,31 +1,58 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
+const int mod = 1e9+7;
 using namespace std;
-int atoi(const string A) {
-    int i=0;
-    bool neg=false;
-    while(A[i]==' ') i++;
-    if(A[i]!='-' and !(A[i]<='9' and A[i]>='0') and A[i]!='+') return 0;
-    if(A[i]=='-'){
-        neg=true;
-        i++;
+int atoi(string s){
+    int n = s.size();
+    if(!n)
+        return 0;
+    int state = 'A';
+    bool negative = false;
+    bool overflow = false;
+    long long ans = 0;
+    if(s[0] == '-'){
+        negative = true;
+        state = 'B';
+    }else if(s[0]=='+'){
+        state = 'B';
+    }else if(s[0]<='9' and s[0]>='0'){
+        ans = (s[0]-'0');
+        state = 'C';
+    }else{
+        state = 'D';
+        return ans;
     }
-    if(A[i]=='+') i++;
-    //cout<<"i is "<<i<<endl;
-    long long num=0;
-    for(;i<A.length();i++){
-        if(num>INT_MAX){
-            return neg?INT_MIN:INT_MAX;
+    for(int i=1;i<n;i++){
+        if(s[i]<='9' and s[i]>='0'){
+            ans = (ans*10) + (s[i]-'0');
+            state = 'C';
+        }else{
+            state = 'D';
+            break;
         }
-        if(!(A[i]<='9' and A[i]>='0')){
-            return neg?num*(-1):num;
+
+        if(ans>INT_MAX){
+            overflow = true;
+            break;
         }
-        num=num*10+(A[i]-'0');
     }
-    return neg?num*(-1):num;
+    if(overflow){
+        if(negative)
+            return INT_MIN;
+        return INT_MAX;
+    }
+    if(negative) ans*=-1;
+    return ans;
 }
-int main(){
-    string q;
-    cin>>q;
-    cout<<atoi(q)<<endl;
+
+int32_t main(){
+    int t;
+    cin >> t;
+    // while(t--){
+    //     string s;
+    //     cin >> s;
+    //     cout << atoi(s) << endl;
+    // }
+    cout << atoi("") << endl;
     return 0;
 }
+
